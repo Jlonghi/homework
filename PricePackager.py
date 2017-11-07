@@ -23,5 +23,3 @@ def pricePackager(price, people, itemType):
 
     #calculating and rounding final total
     return round(flatMarkupTotal + personMarkup + typeMarkupPrice,2)
-    
-print(pricePackager(1299.99, '3 people', 'food'))
