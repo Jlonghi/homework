@@ -1,19 +1,26 @@
 import re
+
+#flat markup
+fMarkup = 0.05
+#people markup
+pMarkup = 0.012
+#type markups
+typeMarkups = {'pharmaceutical': .075, "food": 0.13, "electronics": .02} 
+
 def pricePackager(price, people, itemType):
     reg = re.compile('[0-9]+ (person|people)')
     if price <= 0:
         raise ValueError('Price must be greater than 0')
-    if reg.match(people) is None:
-        raise ValueError('argument must be number of people e.g 1 person or 10 people')
+    if reg.match(people) is None or people[0] < 0:
+        raise ValueError('argument must be number of people e.g 1 person or 10 people and positive')
 
     #flat markup total
-    flatMarkupTotal = price*1.05
+    flatMarkupTotal = price*(1 + fMarkup)
 
     #person markup total
-    personMarkup = flatMarkupTotal * (int(people[0])*0.012)
+    personMarkup = flatMarkupTotal * (int(people[0])*pMarkup)
 
-    #type markups and total
-    typeMarkups = {'pharmaceutical': .075, "food": 0.13, "electronics": .02} 
+    #type markups total
     typeMarkup = 0
     for item in typeMarkups:
         if item == itemType:

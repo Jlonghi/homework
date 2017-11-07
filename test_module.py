@@ -9,7 +9,13 @@ class TestPricePackager(unittest.TestCase):
         self.assertEqual(pricePackager(5432.00, '1 person', 'pharmaceutical'), 6199.81)
 
     def testCase3(self):
-        self.assertEqual(pricePackager(12456.95, '4 people', 'books'), 13707.633)
+        self.assertEqual(pricePackager(12456.95, '4 people', 'books'), 13707.63)
+    
+    def testCase4(self):
+        self.assertEqual(pricePackager(12456.95, '-4 people', 'books'), 13707.63)
+
+    def testCase5(self):
+        self.assertEqual(pricePackager(-12456.95, '4 people', 'books'), 13707.63)
 
 if __name__ == '__main__':
     unittest.main()
