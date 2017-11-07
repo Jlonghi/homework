@@ -8,6 +8,28 @@ pMarkup = 0.012
 typeMarkups = {'pharmaceutical': .075, "food": 0.13, "electronics": .02} 
 
 def pricePackager(price, people, itemType):
+    """
+    Price Packager takes a price and adds a markup to it specified by the parameters
+    
+    Parameters
+    ----------
+    price : float
+        the price to be marked up
+    people : string
+        the amount of people who worked on an item
+    itemType: string
+        the items type
+    
+    Returns
+    -------
+    float
+        a marked up price rounded to two decimals
+    
+    Raises
+    ------
+    ValueError
+        when price is <=0 or when people is negative or entered incorrectly
+    """
     reg = re.compile('[0-9]+ (person|people)')
     if price <= 0:
         raise ValueError('Price must be greater than 0')
