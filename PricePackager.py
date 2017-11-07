@@ -11,8 +11,11 @@ def pricePackager(price, people, itemType):
             typeMarkup = typeMarkups[item]
             break
     typeMarkupPrice = flatMarkupTotal * typeMarkup
+    total = round(flatMarkupTotal + personMarkup + typeMarkupPrice,2)
+    
     #debug
     print('flatMarkupTotal: ', flatMarkupTotal)
     print('personMarkup: ', personMarkup)
     print('typeMarkupPrice: ', typeMarkupPrice)
+    print('total: ', total)
 pricePackager(1299.99, '3 people', 'food')
